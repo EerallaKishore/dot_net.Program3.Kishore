@@ -1,0 +1,56 @@
+﻿@using eClerx.Program3.Kishore.Models
+@model  Supplier
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Product</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.ContactName)
+                    @Html.TextBoxFor(p => p.ContactName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.ContactName)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.Address)
+                    @Html.TextBoxFor(p => p.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Address)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.City)
+                    @Html.TextBoxFor(p => p.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.City)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.Pincode)
+                    @Html.TextBoxFor(p => p.Pincode, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.Pincode)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.MobileNo)
+                    @Html.TextBoxFor(p => p.MobileNo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.MobileNo)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.EmailId)
+                    @Html.TextBoxFor(p => p.EmailId, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.EmailId)
+                </div>
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

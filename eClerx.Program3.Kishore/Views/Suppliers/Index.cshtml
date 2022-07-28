@@ -1,0 +1,74 @@
+﻿@model  IEnumerable<eClerx.Program3.Kishore.Models.Supplier>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @Html.ActionLink("Insert", "Insert", "Suppliers")
+
+        </div>
+        @using (Html.BeginForm("GetProducts", "Home", FormMethod.Get))
+        {
+            <div class="row mb-3">
+               
+                <div class="col-sm-3">
+                    <label> City</label>
+                    @foreach (var prd in Model)
+                    {
+                        @Html.TextBoxFor(p => prd.City, new { @class = "form-control" })
+                    }
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        }
+
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h2>Supplier Details</h2>
+
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>Supplier Id</th>
+                    <th>Company Name</th>
+                    <th>Contact Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>MobileNo</th>
+                    <th>EmailId</th>
+                    <th>Created Date</th>
+                    <th>Modified Date</th>
+                </tr>
+                @foreach (var prd in Model)
+                {
+                    <tr>
+                        <td>@prd.SupplierId</td>
+                        <td>@prd.CompanyName</td>
+                        <td>@prd.ContactName</td>
+                        <td>@prd.Address</td>
+                        <td>@prd.City</td>
+                        <td>@prd.Pincode</td>
+                        <td>@prd.MobileNo</td>
+                        <td>@prd.EmailId</td>
+                        <td>@prd.CraetedDate</td>
+                        <td>@prd.Modifieddate</td>
+                        @*<td> @Html.ActionLink(prd.SupplierId, "Details", "Products", new { id = prd.SupplierId }, null) </td>*@
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "Suppliers", new { id = prd.SupplierId }, new { @class = "btn btn-success" }) |
+                            
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
